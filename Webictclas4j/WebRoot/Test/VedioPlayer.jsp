@@ -5,7 +5,7 @@
 </head>
 <body>
 <%
-    String fileName = "C:\\TDDOWNLOAD\\日本群星.-.[第56回红白歌合战.第2部_21：30-23：45].演唱会.(DVDRip).avi";
+    String fileName = "C:\\test1.avi";
     if(fileName.matches("\\w+\\.rm$")) {
 %>
 <object width="512" height="400" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA">
