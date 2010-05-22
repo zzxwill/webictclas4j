@@ -5,7 +5,7 @@
 <object   id="nsplay"   width=200   height=180   classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95"   codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#version=6,4,5,715"   standby="loading   microsoft   windows   media   player   components..."   type="application/x-oleobject"   align="right"   hspace="5">   
   <!--   asx   file   name   -->   
   <param   name="autorewind"   value=1>   
-  <param   name="filename"   value="/Webictclas4j/I am MT.wmv">   
+  <param   name="filename"   value="/Webictclas4j/Vedio/1 C Rolarodo.flv">   
   <!--   display   controls   -->   
   <param   name="showcontrols"   value="1">   
   <!--   display   position   controls   -->   
