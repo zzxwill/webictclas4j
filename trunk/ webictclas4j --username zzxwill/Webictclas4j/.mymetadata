@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Webictclas4j"
+  id="myeclipse.1274318381092"
+  context-root="/Webictclas4j"
+  j2ee-spec="5.0"
+  archive="Webictclas4j.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
