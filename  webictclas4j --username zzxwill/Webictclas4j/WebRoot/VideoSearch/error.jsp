@@ -14,41 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<title>面向视频场景内容检索的文本解析工具设计与实现</title>
 
-		<style type="text/css">
-.relatedLinks h3 {
-	padding: 10px 0px 2px 0px;
-}
-
-.STYLE14 {
-	color: #000099;
-	font-size: 14px;
-	font-family: "微软雅黑";
-	font-weight: bold;
-}
-
-h3 {
-	font-size: 100%;
-	color: #334d55;
-}
-
-h3 {
-	font-family: Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-}
-
-.STYLE26 {
-	font-family: "微软雅黑";
-	font-weight: bold;
-	background-color: #FFFF99;
-}
-
-.STYLE61 {
-	font-family: "微软雅黑";
-	font-size: 18px;
-	color: #006699;
-}
-</style>
 	</head>
 
 	<body leftmargin="0" topmargin="0">
@@ -139,29 +104,22 @@ h3 {
 
 
 								<td width="200">
-									<form action='/labmanagement/servlet/Login' method='post'>
+									<form action='validate.jsp' method='post'>
 										<table width="886" border=0 cellspacing=0 cellpadding=0 style="width: 886px; height: 51px;" height="51">
 											<tr>
 												<td align="center" height="50">
 													<div align+=="center"> 
-														<strong><font size="3">VRLab视频</font></strong> <input type="text" name="stuNO" maxlength="150" size="50"> 
-														<font size="5"><input type="submit" value="搜索视频"></font> 
+													请输入视频检索文本！
+													<a href="index.jsp" title="返回主页">返回主页</a>
+													
 													</div>
 
-													<%
-														//										out.print("<table width=100% border=0 cellspacing=0 cellpadding=0>");
-														//										out.print("<form action='/labmanagement/servlet/Login' method='post'>");
-														//											out.print("VRlab视频<input type=text name=stuNO>");
-
-														//											out.print("<input type=submit value=搜索视频> ");
-
-														//											out.print("</form>");
-														//										out.print("</table>");
-													%>
+												
 
 												</td>
 											</tr>
 										</table>
+										</form>
 								</td>
 							</tr>
 						</table>
