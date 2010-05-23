@@ -1,46 +1,77 @@
-<%@   page   contentType="text/html;charset=gb2312"   language="java"   %>   
-  <HTML><HEAD><TITLE>ActiveMovie   Embedded   MPG   Object   Test   Page</TITLE></HEAD>   
-  <BODY>   
-   
-<object   id="nsplay"   width=200   height=180   classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95"   codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#version=6,4,5,715"   standby="loading   microsoft   windows   media   player   components..."   type="application/x-oleobject"   align="right"   hspace="5">   
-  <!--   asx   file   name   -->   
-  <param   name="autorewind"   value=1>   
-  <param   name="filename"   value="/Webictclas4j/Vedio/1 C Rolarodo.flv">   
-  <!--   display   controls   -->   
-  <param   name="showcontrols"   value="1">   
-  <!--   display   position   controls   -->   
-  <param   name="showpositioncontrols"   value="0">   
-  <!--   display   audio   controls   -->   
-  <param   name="showaudiocontrols"   value="1">   
-  <!--   display   tracker   controls   -->   
-  <param   name="showtracker"   value="0">   
-  <!--   show   display   -->   
-  <param   name="showdisplay"   value="0">   
-  <!--   display   status   bar   -->   
-  <param   name="showstatusbar"   value="0">   
-  <!--   diplay   go   to   bar   -->   
-  <param   name="showgotobar"   value="0">   
-  <!--   display   controls   -->   
-  <param   name="showcaptioning"   value="0">   
-  <!--   player   autostart   -->   
-  <param   name="autostart"   value=1>   
-  <!--   animation   at   start   -->   
-  <param   name="volume"   value="2500">   
-  <param   name="animationatstart"   value="0">   
-  <!--   transparent   at   start   -->   
-  <param   name="transparentatstart"   value="0">   
-  <!--   do   not   allow   a   change   in   display   size   -->   
-  <param   name="allowchangedisplaysize"   value="0">   
-  <!--   do   not   allow   scanning   -->   
-  <param   name="allowscan"   value="0">   
-  <!--   do   not   show   contect   menu   on   right   mouse   click   -->   
-  <param   name="enablecontextmenu"   value="0">   
-  <!--   do   not   allow   playback   toggling   on   mouse   click   -->   
-  <param   name="clicktoplay"   value="0">   
-  </object>   
-  
+<%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
+<%@ include file="head.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+	</head>
+	<body>
+
+		<center>
+
+
+
+				<!--Split-->
+				<table width="900" border="0" align="center" cellpadding="0"
+					cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
+					<tr align="center">
+						<td bgcolor="#ffffff" align='right' style="height: 28px">
+							<table width="896" border=0 bgcolor=#cccccc cellspacing=1
+								cellpadding=1 height="45"></table>
+						</td>
+					</tr>
+				</table>
+
+
+				<!--Split-->
+				<table width="900" border="0" align="center" cellpadding="0"
+					cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
+					<tr align="center">
+						<td bgcolor="#ffffff" align='right' style="height: 28px">
+							<table width="896" border=0 bgcolor="#ffffff" cellspacing=1
+								cellpadding=1 height="45">
+								<tr bgcolor='#FFFFFF' height='20'>
+									<div align="left">
+								萄牙队备战世界杯 头号球星C罗归队合练
+									
+										<br />
+									</div>
+									<br />
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				
+
+
+
+				<!--Split-->
+				<table width="900" border="0" align="center" cellpadding="0"
+					cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
+					<tr align="center">
+
+						<object type="application/x-shockwave-flash"
+							data="player_flv_maxi.swf" width="700" height="400">
+							<param name="movie" value="player_flv_maxi.swf" />
+							<param name="FlashVars"
+								value="flv=1 C Rolarodo.flv&amp;width=700&amp;height=400&amp;showstop=1&amp;showvolume=1&amp;title=面向视频场景内容检索的文本解析工具设计与实现&amp;bgcolor1=8282B0&amp;bgcolor2=72729A&amp;playercolor=72729A&amp;buttoncolor=C69717&amp;buttonovercolor=E9B21A&amp;slidercolor1=CD9D17&amp;slidercolor2=B08614&amp;sliderovercolor=E9B21A&amp;loadingcolor=E9B21A&amp;titlesize=40" />
+							<p>
+								Texte alternatif
+							</p>
+						</object>
+					</tr>
+				</table>
+		</center>
+
+
+
+	</body>
 
 
 
 
-</BODY></html>   
+
+
+</html>

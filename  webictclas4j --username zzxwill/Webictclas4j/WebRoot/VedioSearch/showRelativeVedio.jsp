@@ -142,7 +142,7 @@
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
 										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+											src="/Webictclas4j/images/C Rolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
