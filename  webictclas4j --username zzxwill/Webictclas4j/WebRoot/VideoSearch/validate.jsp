@@ -34,5 +34,14 @@ request.setCharacterEncoding("gb2312");
 			out.print(inputText);
 			}
 		%>
+		
+		<jsp:useBean id="validatebean" scope="page" class="javabean.WordSegment">
+		<jsp:setProperty name="validatebean" property="inputText" />
+		</jsp:useBean>
+		
+		<!-- µ÷ÓÃGetKeywordsÀà -->
+		<%
+		validatebean.wordseg();
+		 %>
 	</body>
 </html>
