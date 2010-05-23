@@ -5,7 +5,7 @@
 				cellspacing="0" class="tbspan">
 				<tr>
 					<td width="616" height="78" align="center">
-						<a href='http://localhost:8080/Webictclas4j/VedioSearch/index.jsp' target='_blank'> <img
+						<a href='http://localhost:8080/Webictclas4j/VideoSearch/index.jsp' target='_blank'> <img
 								src="/Webictclas4j/images/title.jpg" width="680" height="72" border='0'
 								alt="面向视频场景内容检索的文本解析工具设计与实现">
 						</a>

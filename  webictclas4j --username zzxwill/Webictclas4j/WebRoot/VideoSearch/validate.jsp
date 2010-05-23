@@ -1,10 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
+<%@ page language="java" contentType="text/html" %> 
+<%@ page pageEncoding="gb2312"%>
 <%@ include file="head.jsp"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+request.setCharacterEncoding("gb2312");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -23,13 +21,17 @@
 	%>
 
 		<%
-			String inputText = request.getParameter("/Webictclas4j/ViinputText");
+			String inputText = request.getParameter("inputText");
 			out.println("inputText:" + inputText);
+			out.println("inputText == null:"+inputText == null);
 
-			if (inputText == null) {
-				response.sendRedirect("error.jsp");
+			if (inputText.equals("")) {
+				response.sendRedirect("/Webictclas4j/VideoSearch/error.jsp");
 				return;
 
+			}
+			else{
+			out.print(inputText);
 			}
 		%>
 	</body>
