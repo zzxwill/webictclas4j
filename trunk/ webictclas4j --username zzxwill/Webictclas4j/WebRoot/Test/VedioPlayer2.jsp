@@ -7,10 +7,8 @@
 
 
 
-		<embed
-			src="http://video.google.com/googleplayer.swf?videoUrl=http://music1.hexun.com/Save/Video/2006/1206/126/M_7E83044DFF2983F3.FLV&thumbnailUrl=http://www.eooeo.com/IMAGES1/top2.jpg&playerMode=normal"
-			type="application/x-shockwave-flash" wmode="transparent"
-			quality="high" width="450" height="370" autostart="true"></embed>
+<div align="center"><embed src="http://lzq.mail.googlepages.com/WhitePlayer.swf?id=http://vnc2.6rooms.com/20/88/286c.flv" type="application/x-shockwave-flash" wmode="transparent" quality="high" width="450" height="380" > </embed>
+
 
 
 
