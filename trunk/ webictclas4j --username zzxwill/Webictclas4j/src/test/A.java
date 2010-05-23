@@ -3,6 +3,7 @@ package test;
 public class A {
 	public String subject;
 	public String action[]=new String[3];
+
 	
 	public String getSubject() {
 		return subject;
