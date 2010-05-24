@@ -29,14 +29,13 @@
 				cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
 				<tr align="center">
 					<td bgcolor="#ffffff" align='right' style="height: 28px">
-						<table width="896" border=0 bgcolor="#ffffff"  cellspacing=1
+						<table width="896" border=0 bgcolor="#ffffff" cellspacing=1
 							cellpadding=1 height="45">
 							<tr bgcolor='#FFFFFF' height='20'>
 								<div align="left">
 									搜索
 									<font color="#ff0000">马克思威尔禁区内右脚射门<span
-										style="background-color: rgb(255, 255, 255);"></span> </font>相关视频
-									共找到
+										style="background-color: rgb(255, 255, 255);"></span> </font>相关视频 共找到
 									<font color="#ff0000">29</font> 个视频
 									<br />
 								</div>
@@ -71,6 +70,15 @@
 				<tr align="center">
 
 
+					<%
+					//以变量方式将参数传进去。
+					
+						String picURL = "/Webictclas4j/images/1CRolarodo.jpg";
+						String alt_title="葡萄牙队备战世界杯 头号球星C罗归队合练";
+						String href="http://localhost:8080/Webictclas4j/VideoSearch/VideoPlayer.jsp";
+						
+					%>
+
 					<!-- Vedio 1 -->
 
 					<td bgcolor="#ffffff" align='center' style="height: 28px">
@@ -80,11 +88,10 @@
 							<tr height='20'>
 
 								<td>
-									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
-											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
-											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
+									<a href=<%=href %>
+										target="video"> <img src=<%=picURL%> border="0"
+											width="128" height="96" alt=<%=alt_title %>
+											title=<%=alt_title %> /> </a>
 
 
 								</td>
@@ -94,9 +101,8 @@
 
 								<td>
 
-									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video" title="葡萄牙队备战世界杯 头号球星C罗归队合练">葡萄牙队备战世界杯
-										头号球星C罗归队合练</a>
+									<a href=<%=href %>
+										target="video" title=<%=alt_title %>><%=alt_title %></a>
 								</td>
 							</tr>
 						</table>
@@ -111,9 +117,8 @@
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/2 Milan.jpg" border="0"
-											width="128" height="96" alt="米兰宣布续约因扎吉 超级皮泼续写传奇"
+										target="video"><img src="/Webictclas4j/images/2 Milan.jpg"
+											border="0" width="128" height="96" alt="米兰宣布续约因扎吉 超级皮泼续写传奇"
 											title="米兰宣布续约因扎吉 超级皮泼续写传奇" /> </a>
 
 
@@ -125,7 +130,8 @@
 								<td>
 
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video" title="米兰宣布续约因扎吉 超级皮泼续写传奇">米兰宣布续约因扎吉 超级皮泼续写传奇</a>
+										target="video" title="米兰宣布续约因扎吉 超级皮泼续写传奇">米兰宣布续约因扎吉
+										超级皮泼续写传奇</a>
 								</td>
 							</tr>
 						</table>
@@ -141,8 +147,8 @@
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+										target="video"><img
+											src="/Webictclas4j/images/1CRolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
@@ -166,14 +172,14 @@
 					<!-- Vedio 4-->
 					<td bgcolor="#ffffff" align='center' style="height: 28px">
 
-						<table width="128" border=0 bgcolor="#ffffff"  cellspacing=1
+						<table width="128" border=0 bgcolor="#ffffff" cellspacing=1
 							cellpadding=1 height="45">
 							<tr height='20'>
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+										target="video"><img
+											src="/Webictclas4j/images/1CRolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
@@ -197,14 +203,14 @@
 					<!-- Vedio 5-->
 					<td bgcolor="#ffffff" align='center' style="height: 28px">
 
-						<table width="128" border=0 bgcolor="#ffffff"  cellspacing=1
+						<table width="128" border=0 bgcolor="#ffffff" cellspacing=1
 							cellpadding=1 height="45">
 							<tr height='20'>
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+										target="video"><img
+											src="/Webictclas4j/images/1CRolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
@@ -230,9 +236,9 @@
 
 
 			</table>
-			
-			
-			
+
+
+
 			<!--Split-->
 			<table width="900" border="0" align="center" cellpadding="0"
 				cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
@@ -248,8 +254,8 @@
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+										target="video"><img
+											src="/Webictclas4j/images/1CRolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
@@ -274,8 +280,8 @@
 
 								<td>
 									<a href="http://v.youku.com/v_show/id_XMTc1MDM1ODg0.html"
-										target="video"}><img
-											src="/Webictclas4j/images/1 C Rolarodo.jpg" border="0"
+										target="video"><img
+											src="/Webictclas4j/images/1CRolarodo.jpg" border="0"
 											width="128" height="96" alt="葡萄牙队备战世界杯 头号球星C罗归队合练"
 											title="葡萄牙队备战世界杯 头号球星C罗归队合练" /> </a>
 
