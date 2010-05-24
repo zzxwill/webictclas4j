@@ -568,6 +568,9 @@ public class Dictionary {
 				int found = findInOriginalTable(pw.getIndex(), pw.getRes(), -1);
 				if (found == -1) {
 					ArrayList<WordItem> wis = wts.get(pw.getIndex()).getWords();
+					/*
+					 * ³ö´íÎ»ÖÃ£¡
+					 */
 					for (int j = 0; j < wis.size(); j++) {
 						int compValue = GFString.compareTo(wis.get(j).getWord(), pw.getRes());
 						if (compValue == 1) {

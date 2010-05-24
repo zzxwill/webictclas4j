@@ -3,6 +3,7 @@
 <%@ include file="head.jsp"%>
 <%
 request.setCharacterEncoding("gb2312");
+response.setContentType("text/html;charset=GB2312"); 
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,6 +23,11 @@ request.setCharacterEncoding("gb2312");
 
 		<%
 			String inputText = request.getParameter("inputText");
+			
+			//ResultSet rs;
+//bytep[] bytes = rs.getBytes();
+//String str = new String(bytes, "gb2312");
+			
 			out.println("inputText:" + inputText);
 			out.println("inputText == null:"+inputText == null);
 
@@ -30,18 +36,21 @@ request.setCharacterEncoding("gb2312");
 				return;
 
 			}
-			else{
-			out.print(inputText);
-			}
+		
 		%>
 		
-		<jsp:useBean id="validatebean" scope="page" class="javabean.WordSegment">
-		<jsp:setProperty name="validatebean" property="inputText" />
+		<!-- jsp:useBean id="validatebean" scope="page" class="javabean.WordSegment"-->
+		<jsp:useBean id="validatebean" scope="page" class="keywords.GetKeywords">
+		<!-- para是index.jsp中，输入框中的变量 -->
+		<jsp:setProperty name="validatebean" property="input" param="inputText" />
 		</jsp:useBean>
 		
-		<!-- 调用GetKeywords类 -->
+		<!-- 调getKeywords类 -->
 		<%
-		validatebean.wordseg();
+		out.print(inputText);
+		validatebean.getKeywordsMain4Web();
+//	validatebean.wordseg();
+
 		 %>
 	</body>
 </html>

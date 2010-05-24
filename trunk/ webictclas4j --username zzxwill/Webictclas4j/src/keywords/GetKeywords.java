@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+
 import org.ictclas4j.bean.SegResult;
 import org.ictclas4j.segment.*;
 
@@ -104,6 +106,8 @@ public class GetKeywords {
 
 		return line;
 	}
+
+	
 
 	public String getWordSegResultFromFile() throws FileNotFoundException {
 
@@ -703,8 +707,8 @@ public class GetKeywords {
 	 * 场景个数
 	 */
 	public int sceneNo = 0;
-//	k = -1;
 
+	// k = -1;
 
 	public void insertScene() {
 		k = -1;
@@ -739,11 +743,7 @@ public class GetKeywords {
 					&& !deletedSymbolResult[i + 1][1].equals("n")) {
 				k++;
 			}
-			
-			
-			
-			
-			
+
 			/*
 			 * 姚明在体育馆打篮球。 在 体育馆 n
 			 */
@@ -861,9 +861,7 @@ public class GetKeywords {
 					&& !deletedSymbolResult[i + 1][1].equals("n")) {
 				k++;
 			}
-			
-			
-			
+
 			/*
 			 * 禁区/n 内/f 左脚/n
 			 */
@@ -873,7 +871,6 @@ public class GetKeywords {
 			 * 
 			 * }
 			 */
-			
 
 			if (deletedSymbolResult[i][1].equals("bodyPart_word")) {
 				keyword[k].setBodyPart(deletedSymbolResult[i][0]);
@@ -906,27 +903,24 @@ public class GetKeywords {
 	}
 
 	public static void main(String args[]) throws FileNotFoundException {
-		
-//		WordFrequency wordFrequency=new WordFrequency();
-		
-		WordFrequency wordFrequency=new WordFrequency();
-//		GetKeywords key4IFIDF = new GetKeywords();
-		double idf[]=wordFrequency.countWordFrequency();
-		
-		
-//		GetKeywords key4WordFrequency=wordFrequency.countWordFrequency();
-//		double subjectIDF=key4WordFrequency.i
-//		double actionIDF=wordFrequency.countWordFrequency(0);
-//		double sceneIDF=wordFrequency.countWordFrequency(0);
-//		double bodyPartIDF=wordFrequency.countWordFrequency(0);
-		
-		System.out.println("subject--IDF："+idf[0]);
-		System.out.println("action--IDF："+idf[1]);
-		System.out.println("scene--IDF："+idf[2]);
-		System.out.println("bodyPart--IDF："+idf[3]);
-		
-		
-		
+
+		// WordFrequency wordFrequency=new WordFrequency();
+
+		WordFrequency wordFrequency = new WordFrequency();
+		// GetKeywords key4IFIDF = new GetKeywords();
+		double idf[] = wordFrequency.countWordFrequency();
+
+		// GetKeywords key4WordFrequency=wordFrequency.countWordFrequency();
+		// double subjectIDF=key4WordFrequency.i
+		// double actionIDF=wordFrequency.countWordFrequency(0);
+		// double sceneIDF=wordFrequency.countWordFrequency(0);
+		// double bodyPartIDF=wordFrequency.countWordFrequency(0);
+
+		System.out.println("subject--IDF：" + idf[0]);
+		System.out.println("action--IDF：" + idf[1]);
+		System.out.println("scene--IDF：" + idf[2]);
+		System.out.println("bodyPart--IDF：" + idf[3]);
+
 		System.out.println("文本输入样例：");
 		System.out.println("1.姚明在体育馆打篮球");
 		System.out.println("2.我踢足球");
@@ -991,78 +985,234 @@ public class GetKeywords {
 			System.out.println();
 
 		}
-		
-		
+
 		/*
 		 * 一个句子中所有词的个数总各
 		 */
-		int allWordInSentence=key.subjectNo+key.actionNo+key.sceneNo+key.bodyPartNo;
-		System.out.println("subjectNo:"+key.subjectNo);
-		System.out.println("actionNo:"+key.actionNo);
-		System.out.println("sceneNo:"+key.sceneNo);
-		System.out.println("bodyPartNo:"+key.bodyPartNo);
-		System.out.println("allWordInSentence:"+allWordInSentence);
-		
+		int allWordInSentence = key.subjectNo + key.actionNo + key.sceneNo
+				+ key.bodyPartNo;
+		System.out.println("subjectNo:" + key.subjectNo);
+		System.out.println("actionNo:" + key.actionNo);
+		System.out.println("sceneNo:" + key.sceneNo);
+		System.out.println("bodyPartNo:" + key.bodyPartNo);
+		System.out.println("allWordInSentence:" + allWordInSentence);
 
 		/*
 		 * 权重
 		 */
+
+		double subject_weight = idf[0] * key.subjectNo / allWordInSentence;
+		double action_weight = idf[1] * key.actionNo / allWordInSentence;
+		double scene_weight = idf[2] * key.sceneNo / allWordInSentence;
+		double bodyPart_weight = idf[3] * key.bodyPartNo / allWordInSentence;
+
+		System.out.println("subject权重：" + subject_weight);
+		System.out.println("action权重：" + action_weight);
+		System.out.println("scene权重：" + scene_weight);
+		System.out.println("bodyPart权重：" + bodyPart_weight);
+
+	}
+
+	/*
+	 * 提供web服务
+	 * 
+	 * 此外相当于JavaBean.
+	 */
+	
+	/*
+	 * input变量是为了和jsp交互
+	 */
+	public String input="";
+	
+
+	public String getInput() {
+		return input;
+	}
+
+
+
+	public void setInput(String input) {
+		this.input = input;
+	}
+
+
+
+	public void getKeywordsMain4Web() throws FileNotFoundException, UnsupportedEncodingException {
 		
-		double subject_weight= idf[0]*key.subjectNo/allWordInSentence;
-		double action_weight=  idf[1]*key.actionNo/allWordInSentence;
-		double scene_weight=  idf[2]*key.sceneNo/allWordInSentence;
-		double bodyPart_weight=  idf[3]*key.bodyPartNo/allWordInSentence;
-		
-		System.out.println("subject权重："+subject_weight);
-		System.out.println("action权重："+action_weight);
-		System.out.println("scene权重："+scene_weight);
-		System.out.println("bodyPart权重："+bodyPart_weight);
-		
+		byte[] bytes = input.getBytes("ISO8859-1");
+		try {
+			//unicode
+			input = new String(bytes, "GB2312");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
-		
+/*
+		WordFrequency wordFrequency = new WordFrequency();
+		double idf[] = wordFrequency.countWordFrequency();
 
+		System.out.println("subject--IDF：" + idf[0]);
+		System.out.println("action--IDF：" + idf[1]);
+		System.out.println("scene--IDF：" + idf[2]);
+		System.out.println("bodyPart--IDF：" + idf[3]);
+		*/
+
+		System.out.println("文本输入样例：");
+		System.out.println("1.姚明在体育馆打篮球");
+		System.out.println("2.我踢足球");
+		System.out.println("3.他在中场传球射门。");
+		System.out.println("4.范尼斯特鲁伊禁区内右脚射门");
+		System.out.println("5.何塞·保罗·格雷罗替换下托马斯·吕康");
+		/*
+		 * 在"关键词到知识表达集的映射"时，可以将"抱住"映射为"抱球"
+		 */
+		System.out.println("5.守门员将球死死抱住");
+		System.out.println("5.何塞·保罗·格雷罗经过连续传球精密配合，丹尼·墨菲助攻西蒙·戴维斯破门得分");
+		System.out.println("4.范尼斯特鲁伊小禁区内右脚射门");
+
+		GetKeywords key = new GetKeywords();
+
+		SegTag segTag = new SegTag(1);
+
+		/*
+		 * getWordSegResultFromWeb()
+		 */
+
+		if (input!= null) {
+			try {
+				SegResult seg_res = segTag.split(input);
+				/*
+				 * 获取分词的最终结果。
+				 */
+				// key.wordSegResult=seg_res.getFinalResult();
+				// System.out.println(seg_res.getFinalResult());
+				wordSegResult = seg_res.getFinalResult();
+//				return wordSegResult;
+
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+		}
+
+		// key.getWordSegResultFromWeb();
+
+		System.out.println("获取分词的最终结果:\n" + key.wordSegResult + "\n");
+
+		key.deleteSymbols();
+
+		key.plusDictionary();
+
+		// key.getSubject();
+
+		// key.getAction();
+
+		// key.getScene();
+
+		System.out
+				.println("**********************************************************************\n**********************************************************************");
+		key.insertSubject();
+		key.insertAction();
+		key.insertScene();
+		key.insertBodyPart();
+		/*
+		 * 本来应该是每个主体对对应其自己的行为、场景和身体部位，这是不恰当的！
+		 * 
+		 * 但是
+		 * 
+		 * 突然发现，这样写，恰恰表现了动作的时间性
+		 * 
+		 * 如 主体0:何塞·保罗·格雷罗 行为0-0:传球 行为0-1:配合 行为0-2:null 行为0-3:null 场景0:null
+		 * 身体部位0:null
+		 * 
+		 * 主体1:丹尼·墨菲 行为1-0:null 行为1-1:null 行为1-2:助攻 行为1-3:null 场景1:null
+		 * 身体部位1:null
+		 * 
+		 * 主体2:西蒙·戴维斯 行为2-0:null 行为2-1:null 行为2-2:null 行为2-3:破门得分 场景2:null
+		 * 身体部位2:null
+		 * 
+		 * 0-0:传球 0-1:配合 1-2:助攻 2-3:破门得分
+		 */
+
+		for (int i = 0; i < key.subjectNo; i++) {
+			System.out.println("主体" + i + ":" + key.keyword[i].getSubject());
+			for (int j = 0; j < key.actionNo; j++) {
+				System.out.println("行为" + i + "-" + j + ":"
+						+ key.keyword[i].getAction(j));
+			}
+			System.out.println("场景" + i + ":" + key.keyword[i].getScene());
+			System.out.println("身体部位" + i + ":" + key.keyword[i].getBodyPart());
+			System.out.println();
+
+		}
+
+		/*
+		 * 一个句子中所有词的个数总各
+		 */
+		int allWordInSentence = key.subjectNo + key.actionNo + key.sceneNo
+				+ key.bodyPartNo;
+		System.out.println("subjectNo:" + key.subjectNo);
+		System.out.println("actionNo:" + key.actionNo);
+		System.out.println("sceneNo:" + key.sceneNo);
+		System.out.println("bodyPartNo:" + key.bodyPartNo);
+		System.out.println("allWordInSentence:" + allWordInSentence);
+
+		/*
+		 * 权重
+		 */
+
+		/*
+		double subject_weight = idf[0] * key.subjectNo / allWordInSentence;
+		double action_weight = idf[1] * key.actionNo / allWordInSentence;
+		double scene_weight = idf[2] * key.sceneNo / allWordInSentence;
+		double bodyPart_weight = idf[3] * key.bodyPartNo / allWordInSentence;
+
+		System.out.println("subject权重：" + subject_weight);
+		System.out.println("action权重：" + action_weight);
+		System.out.println("scene权重：" + scene_weight);
+		System.out.println("bodyPart权重：" + bodyPart_weight);
+*/
 	}
 
 	/*
 	 * 封闭一个接口，供TF-IDF调用
 	 */
-//	Item it=new Item();
+	// Item it=new Item();
 	public Item[] getKeywordsMain4IFIDF() throws FileNotFoundException {
 		/*
 		 * Item的一个实例
 		 */
-		
-		
+
 		SegTag segTag = new SegTag(1);
 
-//		BufferedReader reader = new BufferedReader(new InputStreamReader(
-//				System.in));
-		FileReader reader1 = new FileReader("Data/Text4TF-IDF.txt");
+		// BufferedReader reader = new BufferedReader(new InputStreamReader(
+		// System.in));
+		FileReader reader1 = new FileReader("D:\\Data\\Text4TF-IDF.txt");
 		BufferedReader reader = new BufferedReader(reader1);
 		String line = null;
 		try {
 			while ((line = reader.readLine()) != null) {
-				System.out.println("zzxwill:"+line);
+				System.out.println("zzxwill:" + line);
 				/*
 				 * 获取总的句子个数
 				 * 
 				 * 用item[0]表示
 				 */
 				item[0].allSentencesNo++;
-				
+
 				try {
 					SegResult seg_res = segTag.split(line);
 					/*
 					 * 获取分词的最终结果。
 					 */
 					wordSegResult = seg_res.getFinalResult();
-					System.out.println("获取分词的最终结果:\n" +wordSegResult + "\n");
+					System.out.println("获取分词的最终结果:\n" + wordSegResult + "\n");
 
 					deleteSymbols();
 
 					plusDictionary();
-					
+
 					insertSubject();
 					insertAction();
 					insertScene();
@@ -1070,27 +1220,31 @@ public class GetKeywords {
 					/*
 					 * 统计词subject、action、scene、bodypart在句子i中出现的次数
 					 */
-					item[item[0].allSentencesNo-1].setSubjectNo(subjectNo);
-					item[item[0].allSentencesNo-1].setActionNo(actionNo);
-					System.out.println("actionNo:"+actionNo);
-					item[item[0].allSentencesNo-1].setSceneNo(sceneNo);
-					item[item[0].allSentencesNo-1].setBodyPartNo(bodyPartNo);
-					
-					     
-					System.out.println("Sentence Number:"+(item[0].allSentencesNo-1));
+					item[item[0].allSentencesNo - 1].setSubjectNo(subjectNo);
+					item[item[0].allSentencesNo - 1].setActionNo(actionNo);
+					System.out.println("actionNo:" + actionNo);
+					item[item[0].allSentencesNo - 1].setSceneNo(sceneNo);
+					item[item[0].allSentencesNo - 1].setBodyPartNo(bodyPartNo);
 
-					System.out.println("subjectNo["+(item[0].allSentencesNo-1)+"]："+item[item[0].allSentencesNo-1].getSubjectNo());
-					System.out.println("actionNo["+(item[0].allSentencesNo-1)+"]："+item[item[0].allSentencesNo-1].getActionNo());
-					System.out.println("sceneNo["+(item[0].allSentencesNo-1)+"]："+item[item[0].allSentencesNo-1].getSceneNo());
-					System.out.println("bodypartNo["+(item[0].allSentencesNo-1)+"]："+item[item[0].allSentencesNo-1].getBodyPartNo());
-					    
-					
-					
-					
+					System.out.println("Sentence Number:"
+							+ (item[0].allSentencesNo - 1));
+
+					System.out.println("subjectNo["
+							+ (item[0].allSentencesNo - 1) + "]："
+							+ item[item[0].allSentencesNo - 1].getSubjectNo());
+					System.out.println("actionNo["
+							+ (item[0].allSentencesNo - 1) + "]："
+							+ item[item[0].allSentencesNo - 1].getActionNo());
+					System.out.println("sceneNo["
+							+ (item[0].allSentencesNo - 1) + "]："
+							+ item[item[0].allSentencesNo - 1].getSceneNo());
+					System.out.println("bodypartNo["
+							+ (item[0].allSentencesNo - 1) + "]："
+							+ item[item[0].allSentencesNo - 1].getBodyPartNo());
+
 					System.out
-					.println("**********************************************************************\n**********************************************************************");
-			
-					
+							.println("**********************************************************************\n**********************************************************************");
+
 					/*
 					 * 初始化
 					 */
@@ -1098,8 +1252,6 @@ public class GetKeywords {
 					actionNo = 0;
 					sceneNo = 0;
 					bodyPartNo = 0;
-					
-					
 
 				} catch (Throwable t) {
 					t.printStackTrace();
@@ -1113,8 +1265,7 @@ public class GetKeywords {
 		 * 将四个关键要素的个数存入到tfidf.Item里
 		 */
 		return item;
-		
-		
+
 	}
 
 	/*
