@@ -1,5 +1,10 @@
 package javabean;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
+import keywords.GetKeywords;
+
 public class WordSegment {
 	private String inputText="";
 
@@ -12,8 +17,11 @@ public class WordSegment {
 	}
 	
 	
-	public void wordseg(){
-		System.out.println(inputText);
+	public void wordseg() throws FileNotFoundException, UnsupportedEncodingException{
+		GetKeywords getKeywords=new GetKeywords();
+		getKeywords.getKeywordsMain4Web();
+		System.out.println("inputText:"+inputText);
+		
 	}
 
 }
