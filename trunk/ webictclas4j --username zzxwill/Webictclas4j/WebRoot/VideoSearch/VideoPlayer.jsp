@@ -52,6 +52,7 @@
 					cellspacing="0" style="margin-top: 3px; margin-bottom: 6px;">
 					<tr align="center">
 
+<!-- 这是嵌入的播放器 -->
 						<object type="application/x-shockwave-flash"
 							data="player_flv_maxi.swf" width="700" height="400">
 							<param name="movie" value="player_flv_maxi.swf" />
