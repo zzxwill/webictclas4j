@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<title>面向视频场景内容检索的文本解析工具设计与实现</title>
 
 	
@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<tr>
 												<td align="center" height="50">
 												
-													<form action='validate.jsp' method='post'>
+													<form action='validate2.jsp' method='post'>
 														<strong><font size="3">VRLab视频</font></strong> 
 														<input type="text" name="inputText"  size="50"> 
 														<font size="5"><input type="submit" value="搜索视频"></font> 

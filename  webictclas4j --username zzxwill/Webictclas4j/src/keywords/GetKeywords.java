@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Scanner;
 
 import org.ictclas4j.bean.SegResult;
 import org.ictclas4j.segment.*;
@@ -107,7 +108,38 @@ public class GetKeywords {
 		return line;
 	}
 
-	
+	/*
+	 * 
+	 */
+	public String getWordSegResult(String input) throws FileNotFoundException {
+
+		SegTag segTag = new SegTag(1);
+
+		// BufferedReader reader = new BufferedReader(new InputStreamReader(
+		// System.in));
+		// String line = null;
+		// try {
+		// while ((line = reader.readLine()) != null) {
+		try {
+			SegResult seg_res = segTag.split(input);
+			/*
+			 * 获取分词的最终结果。
+			 */
+			// key.wordSegResult=seg_res.getFinalResult();
+			// System.out.println(seg_res.getFinalResult());
+			wordSegResult = seg_res.getFinalResult();
+			return wordSegResult;
+
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+		// }
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
+
+		return input;
+	}
 
 	public String getWordSegResultFromFile() throws FileNotFoundException {
 
@@ -1001,15 +1033,15 @@ public class GetKeywords {
 		 * 权重
 		 */
 
-		double subject_weight = idf[0] * key.subjectNo / allWordInSentence;
-		double action_weight = idf[1] * key.actionNo / allWordInSentence;
-		double scene_weight = idf[2] * key.sceneNo / allWordInSentence;
-		double bodyPart_weight = idf[3] * key.bodyPartNo / allWordInSentence;
+		// double subject_weight = idf[0] * key.subjectNo / allWordInSentence;
+		// double action_weight = idf[1] * key.actionNo / allWordInSentence;
+		// double scene_weight = idf[2] * key.sceneNo / allWordInSentence;
+		// double bodyPart_weight = idf[3] * key.bodyPartNo / allWordInSentence;
 
-		System.out.println("subject权重：" + subject_weight);
-		System.out.println("action权重：" + action_weight);
-		System.out.println("scene权重：" + scene_weight);
-		System.out.println("bodyPart权重：" + bodyPart_weight);
+		// System.out.println("subject权重：" + subject_weight);
+		// System.out.println("action权重：" + action_weight);
+		// System.out.println("scene权重：" + scene_weight);
+		// System.out.println("bodyPart权重：" + bodyPart_weight);
 
 	}
 
@@ -1018,38 +1050,23 @@ public class GetKeywords {
 	 * 
 	 * 此外相当于JavaBean.
 	 */
-	
+
 	/*
 	 * input变量是为了和jsp交互
 	 */
-	public String input="";
-	
+	public String input = "";
 
 	public String getInput() {
 		return input;
 	}
 
-
-
 	public void setInput(String input) {
 		this.input = input;
 	}
 
+	public void getKeywordsMain4Web() throws FileNotFoundException,
+			UnsupportedEncodingException {
 
-
-	public void getKeywordsMain4Web() throws FileNotFoundException, UnsupportedEncodingException {
-		
-		byte[] bytes = input.getBytes("ISO8859-1");
-		try {
-			//unicode
-			input = new String(bytes, "GB2312");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-
-/*
 		WordFrequency wordFrequency = new WordFrequency();
 		double idf[] = wordFrequency.countWordFrequency();
 
@@ -1057,7 +1074,6 @@ public class GetKeywords {
 		System.out.println("action--IDF：" + idf[1]);
 		System.out.println("scene--IDF：" + idf[2]);
 		System.out.println("bodyPart--IDF：" + idf[3]);
-		*/
 
 		System.out.println("文本输入样例：");
 		System.out.println("1.姚明在体育馆打篮球");
@@ -1073,28 +1089,43 @@ public class GetKeywords {
 		System.out.println("4.范尼斯特鲁伊小禁区内右脚射门");
 
 		GetKeywords key = new GetKeywords();
-
-		SegTag segTag = new SegTag(1);
-
 		/*
-		 * getWordSegResultFromWeb()
+		 * 
 		 */
 
-		if (input!= null) {
-			try {
-				SegResult seg_res = segTag.split(input);
-				/*
-				 * 获取分词的最终结果。
-				 */
-				// key.wordSegResult=seg_res.getFinalResult();
-				// System.out.println(seg_res.getFinalResult());
-				wordSegResult = seg_res.getFinalResult();
-//				return wordSegResult;
+		byte[] bytes = input.getBytes();
+		// try {
+		// unicode
+		// input = new String(bytes, "GBK2312");
+		// System.out.println(input);
+		// } catch (UnsupportedEncodingException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 
-			} catch (Throwable t) {
-				t.printStackTrace();
-			}
-		}
+		key.getWordSegResult(input);
+		// SegTag segTag = new SegTag(1);
+		//
+		// /*
+		// * getWordSegResultFromWeb()
+		// */
+		//
+		// if (input != null) {
+		// try {
+		// input = reader.readLine();
+		// SegResult seg_res = segTag.split(input);
+		// /*
+		// * 获取分词的最终结果。
+		// */
+		// // key.wordSegResult=seg_res.getFinalResult();
+		// // System.out.println(seg_res.getFinalResult());
+		// wordSegResult = seg_res.getFinalResult();
+		// // return wordSegResult;
+		//
+		// } catch (Throwable t) {
+		// t.printStackTrace();
+		// }
+		// }
 
 		// key.getWordSegResultFromWeb();
 
@@ -1162,7 +1193,6 @@ public class GetKeywords {
 		 * 权重
 		 */
 
-		/*
 		double subject_weight = idf[0] * key.subjectNo / allWordInSentence;
 		double action_weight = idf[1] * key.actionNo / allWordInSentence;
 		double scene_weight = idf[2] * key.sceneNo / allWordInSentence;
@@ -1172,7 +1202,19 @@ public class GetKeywords {
 		System.out.println("action权重：" + action_weight);
 		System.out.println("scene权重：" + scene_weight);
 		System.out.println("bodyPart权重：" + bodyPart_weight);
-*/
+
+	}
+
+	public void getKeywordsMain4Web2(){
+
+		
+	
+		System.out.println("5.何塞·保罗·格雷罗替换下托马斯·吕康");
+	
+		System.out.println("5.何塞·保罗·格雷罗经过连续传球精密配合，丹尼·墨菲助攻西蒙·戴维斯破门得分");
+		System.out.println("4.范尼斯特鲁伊小禁区内右脚射门");
+
+
 	}
 
 	/*
