@@ -97,6 +97,10 @@ public class Dictionary {
 					if (nBuffer[1] > 0)// String length is more than 0
 					{
 						byte[] word = Utility.readBytes(in, nBuffer[1]);
+						/*
+						 * ×ª»»ÎªGB2312ÊÔÊÔ
+						 * i.setWord(new String(word, "GBK"));
+						 */
 						ti.setWord(new String(word, "GBK"));
 
 					} else
