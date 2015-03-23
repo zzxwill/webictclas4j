@@ -1,0 +1,1 @@
+To make ictclas4j as a web service.
